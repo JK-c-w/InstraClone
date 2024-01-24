@@ -1,0 +1,18 @@
+<% include ./Partials/header.ejs %>
+<div class="  w-full h-screen flex justify-center bg-[#920af9] ">
+   <div  class="bg-white flex flex-col items-center  w-[30%] h-[85%] border-2 mt-[1%] shadow-inner">
+      <img class=" w-[150px] h-[200px]"src="https://tse4.mm.bing.net/th?id=OIP.HSHSNeZ6DcI5YnmWpEWMxwHaHa&pid=Api&P=0&h=180">
+      <div class=" w-[100%] h-[250px] pl-[10px] pr-[10px] ">
+        <form class="flex flex-col items-center" action="/login" method="post">
+           <input class="frm w-[80%] h-[15%] border-2 text-[15px] p-[5px] "type="text" name="username" placeholder="Username" >
+           <input class="frm w-[80%] h-[15%] border-2 text-[15px] p-[5px] mt-[20px]" type="email" name="email" placeholder="Email">
+           <input class=" frm w-[80%] h-[15%]  border-2 text-[15px] p-[5px] mt-[20px]" type="password" name="password" placeholder="Password">
+           <button type="submit" class="w-[80%] h-[15%] text-[15px] p-[5px] mt-[25px] border-2 rounded-[20px] bg-[#4cb5f9]">Log In </button>
+          </form>
+      </div>
+      <div class="flex ">
+         <p>Don't have an account?</p><a href="/signup" class="text-sky-400">Sign Up</a>
+      </div>
+   </div>
+</div>
+<% include ./Partials/footer.ejs %>

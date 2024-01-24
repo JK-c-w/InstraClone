@@ -1,0 +1,50 @@
+<% include ./partials/header.ejs %>
+  <div class="w-full min-h-screen bg-slate-300">
+    <form class="hidden" id="upload" action="/fileupload" method="post" enctype="multipart/form-data">
+      <input type="file" name="dp">
+    </form>
+    <div class="text-[25px] text-white pt-[10px] ml-[25px]"><%=user.name%></div>
+    <div class="flex gap-[40%] items-center ">
+       <div class=" w-[15vmax] h-[15vmax] bg-white rounded-full ml-[25px]  overflow-hidden relative" id="dp">
+        <img src="/images/upload/<%=user.profileImage%>" alt="dp">
+       </div>
+       <div class="flex  gap-[15%] text-[20px] pr-[5%] text-center">
+         <div>
+         <p>POST</p>
+         <p><%=user.uploads.length%></p>
+        </div>
+       <div>
+        <p>Followers</p>
+        <p>20</p>
+       </div>
+       <div>
+        <p>Following</p>
+        <p>20</p>
+         </div>
+          </div>
+    </div>
+    <div class="dets px-6 mt-5">
+        <h3 class="text-lg mb-1"><%=user.username%></h3>
+        <% if(user.bio=!" "){%> 
+         <p class="text-xs tracking-tight opacity-50"><%=user.bio%></p>
+        <% } %>
+        <button class="border-2 bg-zinc-400 border-white"><a href="/edit">Edit Profile</a></button>      
+    </div>
+    <div class="posts w-full flex justify-between gap-1 py-2 mt-5 flex-wrap">
+    <% user.uploads.forEach(function(i){%>
+      <div class="post w-[32.5%] h-32 bg-sky-100 overflow-hidden">
+        <img src="/images/upload/<%=i.image%>">
+      </div>
+    <%})%>
+    </div>
+  </div>
+  <script>
+    let dp=document.querySelector("#dp");
+    dp.addEventListener("click",function(){
+      document.querySelector("#upload input").click();
+    })
+   document.querySelector("#upload input").addEventListener("change",function(){
+     document.querySelector("#upload").submit();
+   })
+  </script>
+<% include ./partials/footer.ejs %>

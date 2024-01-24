@@ -1,0 +1,24 @@
+<% include ./partials/header.ejs %>
+  <div class="w-full min-h-screen bg-zinc-900 text-white p-5">
+     <div class="flex justify-between">
+        <button class="border-[1px] border-white w-[100px] h-[100px] rounded-full"><i class="ri-user-3-fill white"></i><a href="/profile">PROFILE</a></button>
+        <h1>UPLOAD</h1>
+        <button class="border-[1px] border-white w-[100px] h-[100px] rounded-full"><i class="ri-home-line "></i><a href="/feed">HOME</a></button>
+     </div>
+     <div class="flex justify-center">
+        <div class="w-[400px] h-[400px] border-2 rounded-full flex justify-center items-center">
+            <i class="ri-camera-line text-[100px] opactiy-35" id="cam"></i>
+        </div>
+     </div>
+     <form id="uploadform" action="/post" class="w-full px-6 py-3 mt-10" enctype="multipart/form-data" method="post">
+        <input hidden type="file" name="image" id="post">
+        <textarea class="px-2 py-1 w-full bg-zinc-900 border-2 h-20 border-zinc-800 resize-none rounded-md outline-none" placeholder="Write a caption..." name="desc"></textarea>
+        <input class="w-full px-2 py-2 bg-blue-500 rounded-md" type="submit" value="Post">
+    </form>
+  </div>
+  <script>
+      document.querySelector("#cam").addEventListener('click',function(){
+         document.querySelector("form #post").click();
+      })
+  </script>
+<% include ./partials/footer.ejs %>
